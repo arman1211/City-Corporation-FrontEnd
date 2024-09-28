@@ -15,7 +15,7 @@ const ProblemReportModal = ({ problem, isOpen, onClose }) => {
     setLoading(true);
     try {
       const response = await fetch(
-        "http://127.0.0.1:8000/services/report-problem/",
+        "https://city-corporation-backend.onrender.com/services/report-problem/",
         {
           method: "POST",
           headers: {

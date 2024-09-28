@@ -2,11 +2,10 @@ const Footer = () => {
   return (
     <footer className="text-white px-8 py-6 bg-purple-950">
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-4">
-        {/* City Corporation Information */}
         <div className="mb-8 md:mb-0">
-          <h3 className="text-lg font-bold mb-4">City Corporation</h3>
+          <h3 className="text-lg font-bold mb-4">ChittagongCity Corporation</h3>
           <p className="mb-2">Dedicated to Serving the Community</p>
-          <p className="mb-2">123 City Corp Avenue, Your City, Your Country</p>
+          <p className="mb-2">123 City Corp Avenue, Chittagong, Bangladesh</p>
           <p className="mb-2">
             <a href="tel:+8801234567890" className="hover:text-yellow-400">
               +880-123-456-7890
@@ -22,7 +21,6 @@ const Footer = () => {
           </p>
         </div>
 
-        {/* Quick Links */}
         <div className="mb-8 md:mb-0">
           <h3 className="text-lg font-bold mb-4">Quick Links</h3>
           <ul>
@@ -86,7 +84,6 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Contact & Social Media */}
         <div>
           <h3 className="text-lg font-bold mb-4">Get in Touch</h3>
           <ul className="mb-4">

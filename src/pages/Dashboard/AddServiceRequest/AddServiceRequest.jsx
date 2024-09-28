@@ -22,7 +22,7 @@ const AddServiceRequest = () => {
 
     try {
       const response = await axios.post(
-        "http://127.0.0.1:8000/services/service-type/create/",
+        "https://city-corporation-backend.onrender.com/services/service-type/create/",
         formData,
         {
           headers: {

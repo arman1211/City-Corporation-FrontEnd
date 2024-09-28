@@ -9,7 +9,7 @@ const DeleteModal = ({ onClose, id, problemType, setProblemReports }) => {
     e.preventDefault();
     try {
       const response = await axios.delete(
-        `http://127.0.0.1:8000/services/${problemType}/delete/${id}/`
+        `https://city-corporation-backend.onrender.com/services/${problemType}/delete/${id}/`
       );
       console.log(response);
       if (response.status == 204) {

@@ -24,7 +24,7 @@ const AuthorityRegistration = () => {
       console.log(username, email, password);
       try {
         const response = await axios.post(
-          "http://127.0.0.1:8000/user/register/authority/",
+          "https://city-corporation-backend.onrender.com/user/register/authority/",
           {
             username: username,
             email: email,

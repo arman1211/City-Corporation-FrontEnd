@@ -14,7 +14,7 @@ const EditModal = ({ onClose, id, problemType, setProblemReports }) => {
     const fetchProblem = async () => {
       try {
         const response = await axios.get(
-          `http://127.0.0.1:8000/services/${problemType}/update/${id}/`
+          `https://city-corporation-backend.onrender.com/services/${problemType}/update/${id}/`
         );
         console.log(response);
         if (response.data) {
@@ -39,7 +39,7 @@ const EditModal = ({ onClose, id, problemType, setProblemReports }) => {
     console.log(data);
     try {
       const response = await axios.put(
-        `http://127.0.0.1:8000/services/${problemType}/update/${id}/`,
+        `https://city-corporation-backend.onrender.com/services/${problemType}/update/${id}/`,
         data,
         {
           headers: {

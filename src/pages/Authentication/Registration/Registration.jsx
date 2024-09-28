@@ -24,7 +24,7 @@ const Registration = () => {
       console.log(username, email, password);
       try {
         const response = await axios.post(
-          "http://127.0.0.1:8000/user/register/citizen/",
+          "https://city-corporation-backend.onrender.com/user/register/citizen/",
           {
             username: username,
             email: email,

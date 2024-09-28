@@ -13,7 +13,7 @@ const ServiceRequestControl = () => {
     const fetchProblemReports = async () => {
       try {
         const response = await axios.get(
-          "http://127.0.0.1:8000/services/service-type/list/"
+          "https://city-corporation-backend.onrender.com/services/service-type/list/"
         );
         console.log(response);
         if (response.data) {

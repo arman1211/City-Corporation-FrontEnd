@@ -10,7 +10,9 @@ const ServiceRequest = () => {
   const globalState = useGlobalState();
   useEffect(() => {
     const fetchServiceRequests = () => {
-      fetch("http://127.0.0.1:8000/services/service-type/list/")
+      fetch(
+        "https://city-corporation-backend.onrender.com/services/service-type/list/"
+      )
         .then((res) => res.json())
         .then((data) => {
           setServiceRequests(data);

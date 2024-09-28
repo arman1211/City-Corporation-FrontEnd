@@ -19,7 +19,7 @@ const ServiceSolveModal = ({ onClose, id, setProblemReports }) => {
     console.log(data);
     try {
       const response = await axios.post(
-        `http://127.0.0.1:8000/authority/service-request/solve/`,
+        `https://city-corporation-backend.onrender.com/authority/service-request/solve/`,
         data
       );
       console.log(response);

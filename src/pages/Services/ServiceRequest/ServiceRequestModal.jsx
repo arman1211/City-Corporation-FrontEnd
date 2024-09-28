@@ -15,7 +15,7 @@ const ServiceRequestModal = ({ problem, isOpen, onClose }) => {
     setLoading(true);
     try {
       const response = await fetch(
-        "http://127.0.0.1:8000/services/request-service/",
+        "https://city-corporation-backend.onrender.com/services/request-service/",
         {
           method: "POST",
           headers: {

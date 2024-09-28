@@ -23,7 +23,7 @@ const AddProbemReport = () => {
 
     try {
       const response = await axios.post(
-        "http://127.0.0.1:8000/services/problem-type/create/",
+        "https://city-corporation-backend.onrender.com/services/problem-type/create/",
         formData,
         {
           headers: {
