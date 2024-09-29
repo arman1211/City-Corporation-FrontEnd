@@ -8,6 +8,7 @@ import { useGlobalToast } from "../../../GlobalContext/GlobalToast";
 const Login = () => {
   const [username, setUsername] = useState(null);
   const [password, setPassword] = useState(null);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const setGlobalState = useGlobalStateUpdate();
   const navigate = useNavigate();
@@ -16,6 +17,7 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
+      setLoading(true);
       const response = await axios.post(
         "https://city-corporation-backend.onrender.com/user/login/",
         {
@@ -36,6 +38,7 @@ const Login = () => {
         description: "Login successfull",
         status: "success",
       });
+      setLoading(false);
 
       if (role === "citizen") {
         setGlobalState((prevState) => ({
@@ -55,6 +58,7 @@ const Login = () => {
         navigate("/");
       }
     } catch (error) {
+      setLoading(false);
       setError("Login failed. Please check your credentials.", error);
     }
   };
@@ -98,7 +102,7 @@ const Login = () => {
             </div>
             <div className="mt-8">
               <button className="bg-red-600 text-white font-bold py-2 px-4 w-full rounded hover:bg-red-500">
-                Login
+                {loading ? "Loading.." : "Login"}
               </button>
             </div>
           </form>

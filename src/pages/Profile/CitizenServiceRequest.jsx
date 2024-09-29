@@ -74,8 +74,8 @@ const CitizenServiceRequest = () => {
                         <span
                           className={`badge ${
                             report.status === "in_progress"
-                              ? "badge-success p-3 text-white"
-                              : "badge-warning p-3 "
+                              ? "badge-success p-5 text-white"
+                              : "badge-warning p-5 "
                           }`}
                         >
                           {report.status.replace("_", " ")}

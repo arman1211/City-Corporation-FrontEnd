@@ -4,7 +4,7 @@ const ContactUs = () => {
       <section className="bg-white ">
         <div className="container px-6 py-12 mx-auto">
           <div>
-            <p className="font-medium text-blue-500 ">Contact us</p>
+            <p className="font-medium text-red-500 ">Contact us</p>
 
             <h1 className="mt-2 text-2xl font-semibold text-gray-800 md:text-3xl ">
               Chat to our friendly team
@@ -19,7 +19,7 @@ const ContactUs = () => {
           <div className="grid grid-cols-1 gap-12 mt-10 lg:grid-cols-2">
             <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
               <div>
-                <span className="inline-block p-3 text-blue-500 rounded-full bg-blue-100/80 ">
+                <span className="inline-block p-3 text-red-500 rounded-full bg-blue-100/80 ">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -42,13 +42,13 @@ const ContactUs = () => {
                 <p className="mt-2 text-sm text-gray-500 ">
                   Our friendly team is here to help.
                 </p>
-                <p className="mt-2 text-sm text-blue-500 ">
-                  hello@merakiui.com
+                <p className="mt-2 text-sm text-red-500 ">
+                  hello.citycorporation@gmail.com
                 </p>
               </div>
 
               <div>
-                <span className="inline-block p-3 text-blue-500 rounded-full bg-blue-100/80 ">
+                <span className="inline-block p-3 text-red-500 rounded-full bg-blue-100/80 ">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -76,11 +76,11 @@ const ContactUs = () => {
                 <p className="mt-2 text-sm text-gray-500 ">
                   Our friendly team is here to help.
                 </p>
-                <p className="mt-2 text-sm text-blue-500 ">Start new chat</p>
+                <p className="mt-2 text-sm text-red-500 ">Start new chat</p>
               </div>
 
               <div>
-                <span className="inline-block p-3 text-blue-500 rounded-full bg-blue-100/80 ">
+                <span className="inline-block p-3 text-red-500 rounded-full bg-blue-100/80 ">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -108,13 +108,11 @@ const ContactUs = () => {
                 <p className="mt-2 text-sm text-gray-500 ">
                   Come say hello at our office HQ.
                 </p>
-                <p className="mt-2 text-sm text-blue-500 ">
-                  100 Smith Street Collingwood VIC 3066 AU
-                </p>
+                <p className="mt-2 text-sm text-red-500 ">Chittagon city</p>
               </div>
 
               <div>
-                <span className="inline-block p-3 text-blue-500 rounded-full bg-blue-100/80 ">
+                <span className="inline-block p-3 text-red-500 rounded-full bg-blue-100/80 ">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -137,7 +135,7 @@ const ContactUs = () => {
                 <p className="mt-2 text-sm text-gray-500 ">
                   Mon-Fri from 8am to 5pm.
                 </p>
-                <p className="mt-2 text-sm text-blue-500 ">+1 (555) 000-0000</p>
+                <p className="mt-2 text-sm text-red-500 ">+88012345678</p>
               </div>
             </div>
 

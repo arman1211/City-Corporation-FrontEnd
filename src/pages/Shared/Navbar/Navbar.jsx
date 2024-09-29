@@ -34,7 +34,7 @@ const Navbar = () => {
     <div className="w-full shadow-lg bg-purple-950 text-white">
       <div className="navbar w-full lg:w-3/4  m-auto">
         <div className="navbar-start">
-          <div className="dropdown">
+          <div className="dropdown ">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -53,7 +53,7 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content rounded-box z-[1] mt-3 w-52 p-2 shadow"
+              className="menu menu-sm dropdown-content rounded-box z-[1] bg-white mt-3 w-52 p-2 shadow"
             >
               <li>
                 <a href="/" className="text-lg font-bold text-red-500">
@@ -130,14 +130,14 @@ const Navbar = () => {
               </Link>
               {globalState.isCitizen ? (
                 <Link
-                  to={"profile/"}
+                  to={"/profile/"}
                   className="btn uppercase py-2  px-4 rounded-lg bg-transparent border-2 border-red-500 text-red-500  hover:bg-red-500 hover:text-white text-md"
                 >
                   Profile
                 </Link>
               ) : (
                 <Link
-                  to={"dashboard/"}
+                  to={"/dashboard/"}
                   className="btn uppercase py-2 px-4 rounded-lg bg-transparent border-2 border-red-500 text-red-500  hover:bg-red-500 hover:text-white text-md"
                 >
                   Dashboard

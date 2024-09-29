@@ -57,7 +57,7 @@ const ProblemReportModal = ({ problem, isOpen, onClose }) => {
   return (
     <div className="fixed inset-0 bg-black bg-opacity-30 flex justify-center items-center">
       <div className="modal-box bg-white p-6 rounded-md shadow-lg max-w-lg w-full">
-        <h2 className="text-4xl text-purple-950 text-center font-semibold text-gray-800 mb-4">
+        <h2 className="text-4xl text-purple-950 text-center font-semibold  mb-4">
           Report Problem
         </h2>
         <p className="text-base text-gray-700 mb-2">
