@@ -71,15 +71,15 @@ const CitizenServiceRequest = () => {
                       <td>{report.service_type_name}</td>
                       <td>{report.description}</td>
                       <td>
-                        <span
-                          className={`badge ${
-                            report.status === "in_progress"
-                              ? "badge-success p-5 text-white"
-                              : "badge-warning p-5 "
-                          }`}
-                        >
-                          {report.status.replace("_", " ")}
-                        </span>
+                        {report.status === "in_progress" ? (
+                          <button className="btn btn-info text-white btn-sm">
+                            In progress
+                          </button>
+                        ) : (
+                          <button className="btn btn-secondary btn-sm text-white">
+                            Reported
+                          </button>
+                        )}
                       </td>
                       <td>
                         {new Date(report.created_at).toLocaleDateString()}

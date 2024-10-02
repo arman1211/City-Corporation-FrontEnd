@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
-import axios from "axios";
 import { useState } from "react";
 import { useGlobalToast } from "../../../GlobalContext/GlobalToast";
+import axiosInstance from "../../../axios";
 
 const ReportSolveModal = ({ onClose, id, setProblemReports }) => {
   const [description, setDescription] = useState("");
@@ -18,8 +18,8 @@ const ReportSolveModal = ({ onClose, id, setProblemReports }) => {
     };
     console.log(data);
     try {
-      const response = await axios.post(
-        `https://city-corporation-backend.onrender.com/authority/problem-report/solve/`,
+      const response = await axiosInstance.post(
+        `/authority/problem-report/solve/`,
         data
       );
       console.log(response);

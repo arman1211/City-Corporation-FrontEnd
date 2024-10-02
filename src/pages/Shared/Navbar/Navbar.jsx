@@ -74,11 +74,16 @@ const Navbar = () => {
                   Services
                 </a>
               </li>
-              <li>
-                <a href="/chat" className="text-lg font-bold text-red-500">
-                  Live Chat
-                </a>
-              </li>
+              {globalState.isAuthenticated && globalState.isCitizen && (
+                <li>
+                  <a
+                    href="/chat"
+                    className="text-lg text-red-500 font-bold hover:text-red-500"
+                  >
+                    Live Chat
+                  </a>
+                </li>
+              )}
             </ul>
           </div>
           <Link to={"/"} className="flex gap-1 items-center">
@@ -112,11 +117,16 @@ const Navbar = () => {
                 Services
               </a>
             </li>
-            <li>
-              <a href="/chat" className="text-lg font-bold hover:text-red-500">
-                Live Chat
-              </a>
-            </li>
+            {globalState.isAuthenticated && globalState.isCitizen && (
+              <li>
+                <a
+                  href="/chat"
+                  className="text-lg font-bold hover:text-red-500"
+                >
+                  Live Chat
+                </a>
+              </li>
+            )}
           </ul>
         </div>
         <div className="navbar-end">

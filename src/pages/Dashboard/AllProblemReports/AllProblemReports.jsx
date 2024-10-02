@@ -50,52 +50,56 @@ const AllProblemReports = () => {
           </h1>
           {citizenReports.length > 0 ? (
             <div className="overflow-x-auto">
-              <table className="table table-zebra w-full m-auto">
+              <table className="table-auto w-full m-auto border-collapse">
                 <thead>
-                  <tr>
-                    <th className="text-left">#</th>
-                    <th className="text-left">Problem Type</th>
-                    <th className="text-left">Reported By</th>
-                    <th className="text-left">Description</th>
-                    <th className="text-left">Status</th>
-                    <th className="text-left">Created At</th>
-                    <th className="text-left">Updated At</th>
-                    <th className="text-left">Action</th>
+                  <tr className="bg-gray-100">
+                    <th className="px-4 py-2 text-left border">#</th>
+                    <th className="px-4 py-2 text-left border">Problem Type</th>
+                    <th className="px-4 py-2 text-left border">Reported By</th>
+                    <th className="px-4 py-2 text-left border">Description</th>
+                    <th className="px-4 py-2 text-left border">Status</th>
+                    <th className="px-4 py-2 text-left border">Created At</th>
+                    <th className="px-4 py-2 text-left border">Updated At</th>
+                    <th className="px-4 py-2 text-left border">Action</th>
                   </tr>
                 </thead>
                 <tbody>
                   {citizenReports.map((report, index) => (
-                    <tr key={report.id}>
-                      <td>{index + 1}</td>
-                      <td>{report.problem_type.name}</td>
-                      <td>{report.citizen.username}</td>
-                      <td>{report.description}</td>
-                      <td>
+                    <tr key={report.id} className="hover:bg-gray-50">
+                      <td className="px-4 py-2 border">{index + 1}</td>
+                      <td className="px-4 py-2 border">
+                        {report.problem_type.name}
+                      </td>
+                      <td className="px-4 py-2 border">
+                        {report.citizen.username}
+                      </td>
+                      <td className="px-4 py-2 border">{report.description}</td>
+                      <td className="px-4 py-2 border">
                         <span
-                          className={`badge ${
+                          className={`inline-block rounded-full px-3 py-1 text-sm font-semibold ${
                             report.status === "in_progress"
-                              ? "badge-success p-3 text-white"
-                              : "badge-warning p-3"
+                              ? "bg-green-500 text-white"
+                              : "bg-yellow-400 text-gray-800"
                           }`}
                         >
                           {report.status.replace("_", " ")}
                         </span>
                       </td>
-                      <td>
+                      <td className="px-4 py-2 border">
                         {new Date(report.created_at).toLocaleDateString()}
                       </td>
-                      <td>
+                      <td className="px-4 py-2 border">
                         {new Date(report.updated_at).toLocaleDateString()}
                       </td>
-                      <td>
+                      <td className="px-4 py-2 border">
                         {report.status === "in_progress" ? (
-                          <button className="btn text-white btn-success btn-sm">
+                          <button className="btn text-white bg-green-500 hover:bg-green-600 btn-sm">
                             Solved
                           </button>
                         ) : (
                           <button
                             onClick={() => handleModalOpen(report.id)}
-                            className="btn btn-primary btn-sm"
+                            className="btn bg-blue-500 hover:bg-blue-600 text-white btn-sm"
                           >
                             Solve
                           </button>
@@ -105,12 +109,13 @@ const AllProblemReports = () => {
                   ))}
                 </tbody>
               </table>
+
               {isModalOpen && (
                 <ReportSolveModal
                   onClose={handleCloseModal}
                   id={problemId}
                   setProblemReports={setCitizenReports}
-                ></ReportSolveModal>
+                />
               )}
             </div>
           ) : (

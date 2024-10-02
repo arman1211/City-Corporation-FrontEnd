@@ -1,15 +1,59 @@
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+
 const LiveChat = () => {
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+
+  const startNewChat = async () => {
+    const senderId = localStorage.getItem("userId"); // Get senderId from localStorage
+    if (!senderId) {
+      alert("User not found! Please log in.");
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      const response = await axios.post(
+        "https://city-corporation-backend.onrender.com/chat/chat-room/",
+        {
+          citizen: senderId,
+        }
+      );
+      console.log(response);
+
+      if (response.status == 201) {
+        const Id = response.data.id; // Get the roomId from the response
+        // Redirect to the new chat room using roomId
+        navigate(`newchat/${Id}`);
+      }
+    } catch (error) {
+      console.error("Error creating chat room:", error);
+      alert("Failed to start a new chat. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div>
-      <div className="bg-gray-100 ">
+      <div className="bg-red-100">
         <div className="min-h-screen flex items-center justify-center">
-          <div className="max-w-2xl w-full px-4">
-            <h1 className="text-4xl font-bold text-center mb-8 text-gray-900 ">
-              Coming Soon!
-            </h1>
-            <p className="text-lg text-gray-600 text-center mb-12">
-              Our Live Chat feature with authority is coming soon, stay tuned
-            </p>
+          <div className="max-w-2xl flex flex-col md:flex-row gap-5 justify-center w-full px-4">
+            <button
+              onClick={startNewChat}
+              className={`btn btn-secondary ${
+                loading ? "opacity-50 cursor-not-allowed" : ""
+              }`}
+              disabled={loading}
+            >
+              {loading ? "Starting Chat..." : "Start a new Chat"}
+            </button>
+            <Link to="chat-history/" className="btn btn-primary">
+              My Chat History
+            </Link>
           </div>
         </div>
       </div>

@@ -81,7 +81,7 @@ const Dashboard = () => {
                   />
                 </svg>
               </div>
-              Citizens Service Request
+              Citizen Service Request
             </Link>
 
             <Link
@@ -152,6 +152,52 @@ const Dashboard = () => {
                 </svg>
               </div>
               All Service Control
+            </Link>
+            <Link
+              to={"/dashboard/user-contact"}
+              role="button"
+              tabIndex="0"
+              className="flex items-center w-full p-3 rounded-lg text-start leading-tight transition-all hover:bg-blue-50 hover:bg-opacity-80 focus:bg-purple-400 focus:bg-opacity-80 active:bg-blue-50 active:bg-opacity-80 hover:text-blue-900 focus:text-blue-900 active:text-blue-900 outline-none"
+            >
+              <div className="grid place-items-center mr-4">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                  className="h-5 w-5"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M4.5 3.75A2.25 2.25 0 016.75 1.5h7.5A2.25 2.25 0 0116.5 3.75V6h3.75A2.25 2.25 0 0122.5 8.25v12A2.25 2.25 0 0120.25 22.5H6.75a2.25 2.25 0 01-2.25-2.25V3.75zm1.5 0v16.5a.75.75 0 00.75.75h13.5a.75.75 0 00.75-.75V8.25a.75.75 0 00-.75-.75H15v4.5a2.25 2.25 0 01-2.25 2.25h-4.5A2.25 2.25 0 016 12.75V3.75a.75.75 0 00-.75-.75H6zm7.5 0H9v7.5h4.5V6H15V3.75h-1.5zm-3.75 0V9H15V3.75H9z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </div>
+              User Contact Message
+            </Link>
+            <Link
+              to={"/dashboard/authority-chat"}
+              role="button"
+              tabIndex="0"
+              className="flex items-center w-full p-3 rounded-lg text-start leading-tight transition-all hover:bg-blue-50 hover:bg-opacity-80 focus:bg-purple-400 focus:bg-opacity-80 active:bg-blue-50 active:bg-opacity-80 hover:text-blue-900 focus:text-blue-900 active:text-blue-900 outline-none"
+            >
+              <div className="grid place-items-center mr-4">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                  className="h-5 w-5"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M4.5 3.75A2.25 2.25 0 016.75 1.5h7.5A2.25 2.25 0 0116.5 3.75V6h3.75A2.25 2.25 0 0122.5 8.25v12A2.25 2.25 0 0120.25 22.5H6.75a2.25 2.25 0 01-2.25-2.25V3.75zm1.5 0v16.5a.75.75 0 00.75.75h13.5a.75.75 0 00.75-.75V8.25a.75.75 0 00-.75-.75H15v4.5a2.25 2.25 0 01-2.25 2.25h-4.5A2.25 2.25 0 016 12.75V3.75a.75.75 0 00-.75-.75H6zm7.5 0H9v7.5h4.5V6H15V3.75h-1.5zm-3.75 0V9H15V3.75H9z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </div>
+              Live Chat
             </Link>
           </nav>
         </div>

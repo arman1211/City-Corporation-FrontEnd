@@ -19,6 +19,11 @@ import AuthorityProfile from "../pages/Dashboard/AuthorityProfile/AuthorityProfi
 import PrivateRoute from "./PrivateRoute";
 import ContactUs from "../pages/ContactUs/ContactUs";
 import LiveChat from "../pages/LiveChat/LiveChat";
+import UserContactMessage from "../pages/Dashboard/UserContactMessage/UserContactMessage";
+import CitizenChatUi from "../pages/LiveChat/CitizenChatUi";
+import ChatHistory from "../pages/LiveChat/ChatHistory";
+import AuthorityChat from "../pages/Dashboard/LiveChat/AuthorityChat";
+import ReplyChat from "../pages/Dashboard/LiveChat/ReplyChat";
 
 export const router = createBrowserRouter([
   {
@@ -40,6 +45,18 @@ export const router = createBrowserRouter([
       {
         path: "/chat",
         element: <PrivateRoute element={<LiveChat />}></PrivateRoute>,
+      },
+      {
+        path: "/chat/chat-history",
+        element: <PrivateRoute element={<ChatHistory />}></PrivateRoute>,
+      },
+      {
+        path: "/chat/newchat/:roomId",
+        element: (
+          <PrivateRoute
+            element={<CitizenChatUi></CitizenChatUi>}
+          ></PrivateRoute>
+        ),
       },
       {
         path: "/login",
@@ -100,6 +117,18 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/service-control",
         element: <ServiceControl></ServiceControl>,
+      },
+      {
+        path: "/dashboard/user-contact",
+        element: <UserContactMessage></UserContactMessage>,
+      },
+      {
+        path: "/dashboard/authority-chat",
+        element: <AuthorityChat></AuthorityChat>,
+      },
+      {
+        path: "/dashboard/authority-chat/:roomId",
+        element: <ReplyChat></ReplyChat>,
       },
     ],
   },

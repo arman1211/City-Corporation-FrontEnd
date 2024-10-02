@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useGlobalToast } from "../../../GlobalContext/GlobalToast";
 import { useNavigate } from "react-router-dom";
+import axiosInstance from "../../../axios";
 
 const AddProbemReport = () => {
   const [name, setName] = useState("");
@@ -22,8 +23,8 @@ const AddProbemReport = () => {
     formData.append("image", image);
 
     try {
-      const response = await axios.post(
-        "https://city-corporation-backend.onrender.com/services/problem-type/create/",
+      const response = await axiosInstance.post(
+        "/services/problem-type/create/",
         formData,
         {
           headers: {
@@ -31,12 +32,14 @@ const AddProbemReport = () => {
           },
         }
       );
-      showToast({
-        title: "Added",
-        description: "Problem Type added successfully",
-        status: "success",
-      });
-      navigate("/dashboard/service-control");
+      if (response.status == 201) {
+        showToast({
+          title: "Added",
+          description: "Problem Type added successfully",
+          status: "success",
+        });
+        navigate("/dashboard/service-control");
+      }
     } catch {
       showToast({
         title: "Failed",

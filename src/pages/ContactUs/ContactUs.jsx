@@ -1,4 +1,55 @@
+import axios from "axios";
+import { useState } from "react";
+import { useGlobalToast } from "../../GlobalContext/GlobalToast";
+
 const ContactUs = () => {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
+  const { showToast } = useGlobalToast();
+  const handleContact = (e) => {
+    e.preventDefault();
+    const contactPost = async () => {
+      const data = {
+        first_name: firstName,
+        last_name: lastName,
+        email: email,
+        message: message,
+      };
+      console.log(data);
+      try {
+        setLoading(true);
+        const response = await axios.post(
+          "https://city-corporation-backend.onrender.com/contact/post/",
+          data
+        );
+        console.log(response);
+        if (response.status == 201) {
+          showToast({
+            title: "Submitted",
+            description: "Please wait, we will contact you.",
+            status: "success",
+          });
+          setFirstName("");
+          setLastName("");
+          setEmail("");
+          setMessage("");
+        }
+      } catch (err) {
+        showToast({
+          title: "oopss",
+          description: "Something went wrong",
+          status: "warning",
+        });
+        console.log(err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    contactPost();
+  };
   return (
     <div>
       <section className="bg-white ">
@@ -140,7 +191,7 @@ const ContactUs = () => {
             </div>
 
             <div className="p-4 py-6 rounded-lg bg-gray-50  md:p-8">
-              <form>
+              <form onSubmit={handleContact}>
                 <div className="-mx-2 md:items-center md:flex">
                   <div className="flex-1 px-2">
                     <label className="block mb-2 text-sm text-gray-600 ">
@@ -148,6 +199,7 @@ const ContactUs = () => {
                     </label>
                     <input
                       type="text"
+                      onChange={(e) => setFirstName(e.target.value)}
                       placeholder="John "
                       className="block w-full px-5 py-2.5 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg     focus:border-blue-400  focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
                     />
@@ -159,6 +211,7 @@ const ContactUs = () => {
                     </label>
                     <input
                       type="text"
+                      onChange={(e) => setLastName(e.target.value)}
                       placeholder="Doe"
                       className="block w-full px-5 py-2.5 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg     focus:border-blue-400  focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
                     />
@@ -171,6 +224,7 @@ const ContactUs = () => {
                   </label>
                   <input
                     type="email"
+                    onChange={(e) => setEmail(e.target.value)}
                     placeholder="johndoe@example.com"
                     className="block w-full px-5 py-2.5 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg     focus:border-blue-400  focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
                   />
@@ -181,13 +235,17 @@ const ContactUs = () => {
                     Message
                   </label>
                   <textarea
+                    onChange={(e) => setMessage(e.target.value)}
                     className="block w-full h-32 px-5 py-2.5 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg md:h-56     focus:border-blue-400  focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
                     placeholder="Message"
                   ></textarea>
                 </div>
 
-                <button className="w-full px-6 py-3 mt-4 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-red-500 rounded-lg hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
-                  Send message
+                <button
+                  type="submit"
+                  className="w-full px-6 py-3 mt-4 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-red-500 rounded-lg hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50"
+                >
+                  {loading ? "Sending" : "Send Message"}
                 </button>
               </form>
             </div>
