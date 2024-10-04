@@ -1,5 +1,4 @@
 import { useState } from "react";
-import axios from "axios";
 import { useGlobalToast } from "../../../GlobalContext/GlobalToast";
 import { useNavigate } from "react-router-dom";
 import axiosInstance from "../../../axios";
