@@ -24,7 +24,7 @@ const Registration = () => {
       console.log(username, email, password);
       try {
         const response = await axios.post(
-          "https://city-corporation-backend.onrender.com/user/register/citizen/",
+          "https://city-corporation-backend.vercel.app/user/register/citizen/",
           {
             username: username,
             email: email,

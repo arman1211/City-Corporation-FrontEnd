@@ -7,7 +7,7 @@ const AuthorityProfile = () => {
   useEffect(() => {
     const getUserInfo = async () => {
       const response = await axios.get(
-        `https://city-corporation-backend.onrender.com/user/details/${userId}`
+        `https://city-corporation-backend.vercel.app/user/details/${userId}`
       );
       if (response.status == 200) {
         setProfile(response.data);

@@ -11,7 +11,7 @@ const ProblemReport = () => {
   useEffect(() => {
     const fetchProblemReports = () => {
       fetch(
-        "https://city-corporation-backend.onrender.com/services/problem-type/list/"
+        "https://city-corporation-backend.vercel.app/services/problem-type/list/"
       )
         .then((res) => res.json())
         .then((data) => {
@@ -32,7 +32,9 @@ const ProblemReport = () => {
   };
   return (
     <div className="my-5">
-      <h1 className="text-3xl font-bold text-center my-3">Problem Reports</h1>
+      <h1 className="text-4xl font-bold text-center text-purple-900 my-7">
+        Problem Reports
+      </h1>
       {problemReports.length == 0 && (
         <div className="">
           <Skeleton></Skeleton>
@@ -61,7 +63,8 @@ const ProblemReport = () => {
           </div>
         ))}
       </div>
-      <hr className="mt-5" />
+      <hr className="mt-5 w-full border-0 h-1 bg-gradient-to-r from-red-500 to-purple-500" />
+
       <ProblemReportModal
         problem={selectedProblem}
         isOpen={isModalOpen}

@@ -11,7 +11,7 @@ const ServiceRequest = () => {
   useEffect(() => {
     const fetchServiceRequests = () => {
       fetch(
-        "https://city-corporation-backend.onrender.com/services/service-type/list/"
+        "https://city-corporation-backend.vercel.app/services/service-type/list/"
       )
         .then((res) => res.json())
         .then((data) => {
@@ -32,7 +32,9 @@ const ServiceRequest = () => {
   };
   return (
     <div className="my-5">
-      <h1 className="text-3xl font-bold text-center my-3">Service Request</h1>
+      <h1 className="text-4xl font-bold text-center text-purple-900 my-7">
+        Service Request
+      </h1>
       {serviceRequests.length == 0 && (
         <div className="">
           <Skeleton></Skeleton>
