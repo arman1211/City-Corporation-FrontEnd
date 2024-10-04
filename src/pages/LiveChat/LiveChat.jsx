@@ -17,7 +17,7 @@ const LiveChat = () => {
 
     try {
       const response = await axios.post(
-        "https://city-corporation-backend.vercel.app/chat/chat-room/",
+        "https://city-corporation-backend.onrender.com/chat/chat-room/",
         {
           citizen: senderId,
         }

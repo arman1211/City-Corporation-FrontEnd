@@ -10,7 +10,7 @@ const ProblemReportSolveModal = ({ problemId, onClose, problemType }) => {
     const fetchProblemSolveData = async () => {
       try {
         const response = await axios.get(
-          `https://city-corporation-backend.vercel.app/authority/${problemType}/solve/${problemId}`
+          `https://city-corporation-backend.onrender.com/authority/${problemType}/solve/${problemId}`
         );
         if (response.status == 200) {
           setDescription(response.data.description);

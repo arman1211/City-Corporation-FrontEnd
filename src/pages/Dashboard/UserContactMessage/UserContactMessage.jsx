@@ -9,7 +9,7 @@ const UserContactMessage = () => {
       try {
         setLoading(true);
         const response = await axios.get(
-          `https://city-corporation-backend.vercel.app/contact/get/`
+          `https://city-corporation-backend.onrender.com/contact/get/`
         );
         console.log(response);
         if (response.status == 200) {

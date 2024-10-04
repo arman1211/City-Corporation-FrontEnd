@@ -11,7 +11,7 @@ const ServiceRequest = () => {
   useEffect(() => {
     const fetchServiceRequests = () => {
       fetch(
-        "https://city-corporation-backend.vercel.app/services/service-type/list/"
+        "https://city-corporation-backend.onrender.com/services/service-type/list/"
       )
         .then((res) => res.json())
         .then((data) => {

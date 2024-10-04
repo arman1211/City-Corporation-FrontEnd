@@ -13,7 +13,7 @@ const ProblemReportControl = () => {
     const fetchProblemReports = async () => {
       try {
         const response = await axios.get(
-          "https://city-corporation-backend.vercel.app/services/problem-type/list/"
+          "https://city-corporation-backend.onrender.com/services/problem-type/list/"
         );
         console.log(response);
         if (response.data) {

@@ -13,7 +13,7 @@ const CitizenServiceRequest = () => {
       try {
         setLoading(true);
         const response = await axios.get(
-          `https://city-corporation-backend.vercel.app/services/request-service/citizen/${parseInt(
+          `https://city-corporation-backend.onrender.com/services/request-service/citizen/${parseInt(
             userId
           )}`
         );

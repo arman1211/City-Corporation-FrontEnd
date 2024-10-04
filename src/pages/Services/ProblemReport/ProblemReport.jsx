@@ -11,7 +11,7 @@ const ProblemReport = () => {
   useEffect(() => {
     const fetchProblemReports = () => {
       fetch(
-        "https://city-corporation-backend.vercel.app/services/problem-type/list/"
+        "https://city-corporation-backend.onrender.com/services/problem-type/list/"
       )
         .then((res) => res.json())
         .then((data) => {
