@@ -22,13 +22,13 @@ const ProblemReport = () => {
     fetchProblemReports();
   }, []);
   const handleReportClick = (problem) => {
-    setSelectedProblem(problem); // Set the selected problem
-    setIsModalOpen(true); // Open the modal
+    setSelectedProblem(problem);
+    setIsModalOpen(true);
   };
 
   const closeModal = () => {
-    setIsModalOpen(false); // Close the modal
-    setSelectedProblem(null); // Clear the selected problem
+    setIsModalOpen(false);
+    setSelectedProblem(null);
   };
   return (
     <div className="my-5">
