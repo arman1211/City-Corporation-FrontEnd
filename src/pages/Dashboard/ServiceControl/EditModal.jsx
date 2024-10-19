@@ -1,7 +1,8 @@
 /* eslint-disable react/prop-types */
-import axios from "axios";
+
 import { useEffect, useState } from "react";
 import { useGlobalToast } from "../../../GlobalContext/GlobalToast";
+import axiosInstance from "../../../axios";
 
 const EditModal = ({ onClose, id, problemType, setProblemReports }) => {
   const [problem, setProblem] = useState({});
@@ -13,8 +14,8 @@ const EditModal = ({ onClose, id, problemType, setProblemReports }) => {
   useEffect(() => {
     const fetchProblem = async () => {
       try {
-        const response = await axios.get(
-          `https://city-corporation-backend.onrender.com/services/${problemType}/update/${id}/`
+        const response = await axiosInstance.get(
+          `https://city-corporation-backend.vercel.app/services/${problemType}/update/${id}/`
         );
         console.log(response);
         if (response.data) {
@@ -38,8 +39,8 @@ const EditModal = ({ onClose, id, problemType, setProblemReports }) => {
     };
     console.log(data);
     try {
-      const response = await axios.put(
-        `https://city-corporation-backend.onrender.com/services/${problemType}/update/${id}/`,
+      const response = await axiosInstance.put(
+        `https://city-corporation-backend.vercel.app/services/${problemType}/update/${id}/`,
         data,
         {
           headers: {

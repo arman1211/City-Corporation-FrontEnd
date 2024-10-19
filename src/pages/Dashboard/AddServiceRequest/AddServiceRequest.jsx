@@ -11,35 +11,57 @@ const AddServiceRequest = () => {
   const { showToast } = useGlobalToast();
   const navigate = useNavigate();
 
+  // Add your ImageBB API key here
+  const imageBBApiKey = "6d7c721c067a459ff64cabd28e220d44";
+
+  const uploadImageToImageBB = async (imageFile) => {
+    const formData = new FormData();
+    formData.append("image", imageFile);
+
+    try {
+      const response = await fetch(
+        `https://api.imgbb.com/1/upload?key=${imageBBApiKey}`,
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
+      const data = await response.json();
+      return data.data.url; // Return the image URL
+    } catch (error) {
+      console.error("Error uploading image:", error);
+      throw new Error("Image upload failed");
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
 
-    const formData = new FormData();
-    formData.append("name", name);
-    formData.append("description", description);
-    formData.append("image", image);
-
     try {
+      // First, upload the image to ImageBB
+      const imageUrl = await uploadImageToImageBB(image);
+
+      // Once the image URL is obtained, submit the form data to the backend
       const response = await axiosInstance.post(
         "/services/service-type/create/",
-        formData,
         {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
+          name,
+          description,
+          image: imageUrl, // Send image URL to the backend
         }
       );
 
-      if (response.status == 201) {
+      if (response.status === 201) {
         showToast({
           title: "Added",
-          description: "Problem Type added successfully",
+          description: "Service Type added successfully",
           status: "success",
         });
         navigate("/dashboard/service-control");
       }
-    } catch {
+    } catch (error) {
+      console.log(error);
       showToast({
         title: "Failed",
         description: "Something went wrong",
@@ -51,7 +73,7 @@ const AddServiceRequest = () => {
   };
 
   return (
-    <div className="max-w-lg  mx-auto p-6 bg-white rounded-lg shadow-lg mt-10">
+    <div className="max-w-lg mx-auto p-6 bg-white rounded-lg shadow-lg mt-10">
       <h2 className="text-2xl font-bold mb-6 text-center">
         Create Service Type
       </h2>

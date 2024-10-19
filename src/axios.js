@@ -2,7 +2,7 @@ import axios from "axios";
 
 // Create an Axios instance
 const axiosInstance = axios.create({
-  baseURL: "https://city-corporation-backend.onrender.com", 
+  baseURL: "https://city-corporation-backend.vercel.app", 
 });
 
 
@@ -33,7 +33,7 @@ axiosInstance.interceptors.response.use(
 
       try {
         const response = await axios.post(
-          "https://city-corporation-backend.onrender.com/auth/token/refresh/",
+          "https://city-corporation-backend.vercel.app/auth/token/refresh/",
           { refresh: refreshToken }
         );
         const newAccessToken = response.data.access;

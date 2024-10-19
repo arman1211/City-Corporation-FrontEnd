@@ -22,7 +22,7 @@ const ContactUs = () => {
       try {
         setLoading(true);
         const response = await axios.post(
-          "https://city-corporation-backend.onrender.com/contact/post/",
+          "https://city-corporation-backend.vercel.app/contact/post/",
           data
         );
         console.log(response);

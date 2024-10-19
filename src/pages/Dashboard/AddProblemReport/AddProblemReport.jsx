@@ -3,7 +3,7 @@ import { useGlobalToast } from "../../../GlobalContext/GlobalToast";
 import { useNavigate } from "react-router-dom";
 import axiosInstance from "../../../axios";
 
-const AddProbemReport = () => {
+const AddProblemReport = () => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [image, setImage] = useState(null);
@@ -12,26 +12,48 @@ const AddProbemReport = () => {
 
   const { showToast } = useGlobalToast();
 
+  const imageBBApiKey = "6d7c721c067a459ff64cabd28e220d44";
+
+  const uploadImageToImageBB = async (imageFile) => {
+    const formData = new FormData();
+    formData.append("image", imageFile);
+
+    try {
+      const response = await fetch(
+        `https://api.imgbb.com/1/upload?key=${imageBBApiKey}`,
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
+      const data = await response.json();
+      console.log(data);
+      return data.data.url;
+    } catch (error) {
+      console.error("Error uploading image:", error);
+      throw new Error("Image upload failed");
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
 
-    const formData = new FormData();
-    formData.append("name", name);
-    formData.append("description", description);
-    formData.append("image", image);
-
     try {
+      const imageUrl = await uploadImageToImageBB(image);
+      console.log(imageUrl, name, description);
+
+      // Once the image URL is obtained, submit the form data to the backend
       const response = await axiosInstance.post(
         "/services/problem-type/create/",
-        formData,
         {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
+          name,
+          description,
+          image: imageUrl, // Send image URL to the backend
         }
       );
-      if (response.status == 201) {
+
+      if (response.status === 201) {
         showToast({
           title: "Added",
           description: "Problem Type added successfully",
@@ -39,7 +61,8 @@ const AddProbemReport = () => {
         });
         navigate("/dashboard/service-control");
       }
-    } catch {
+    } catch (error) {
+      console.log(error);
       showToast({
         title: "Failed",
         description: "Something went wrong",
@@ -108,4 +131,4 @@ const AddProbemReport = () => {
   );
 };
 
-export default AddProbemReport;
+export default AddProblemReport;

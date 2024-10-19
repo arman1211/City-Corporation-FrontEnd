@@ -12,7 +12,7 @@ const AllServiceRequest = () => {
       try {
         setLoading(true);
         const response = await axios.get(
-          `https://city-corporation-backend.onrender.com/services/request-service/list`
+          `https://city-corporation-backend.vercel.app/services/request-service/list`
         );
         console.log(response);
         if (response.status == 200) {

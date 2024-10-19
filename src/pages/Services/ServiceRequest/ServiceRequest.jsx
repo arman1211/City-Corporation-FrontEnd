@@ -11,7 +11,7 @@ const ServiceRequest = () => {
   useEffect(() => {
     const fetchServiceRequests = () => {
       fetch(
-        "https://city-corporation-backend.onrender.com/services/service-type/list/"
+        "https://city-corporation-backend.vercel.app/services/service-type/list/"
       )
         .then((res) => res.json())
         .then((data) => {
@@ -44,7 +44,7 @@ const ServiceRequest = () => {
         {serviceRequests.map((service) => (
           <div key={service.id} className="card bg-base-100 w-96 shadow-xl">
             <figure>
-              <img src={service.image} alt="Shoes" />
+              <img src={service.image} alt="s" />
             </figure>
             <div className="card-body">
               <h2 className="card-title">{service.name}</h2>

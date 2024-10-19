@@ -10,6 +10,7 @@ const Registration = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
   const { showToast } = useGlobalToast();
@@ -21,10 +22,11 @@ const Registration = () => {
       return;
     }
     if (password === confirmPassword) {
+      setLoading(true);
       console.log(username, email, password);
       try {
         const response = await axios.post(
-          "https://city-corporation-backend.onrender.com/user/register/citizen/",
+          "https://city-corporation-backend.vercel.app/user/register/citizen/",
           {
             username: username,
             email: email,
@@ -34,6 +36,7 @@ const Registration = () => {
         console.log(response);
 
         if (response.status === 201) {
+          setLoading(false);
           showToast({
             title: "Registration successful",
             description: "Please login",
@@ -42,6 +45,7 @@ const Registration = () => {
           navigate("/login");
         }
       } catch (error) {
+        setLoading(false);
         setError("An unexpected error occurred. Please try again", error);
       }
     }
@@ -125,13 +129,13 @@ const Registration = () => {
             </div>
             <div className="mt-8">
               <button className="bg-red-600 text-white font-bold py-2 px-4 w-full rounded hover:bg-red-500">
-                Register
+                {loading ? "Registering.." : "Register"}
               </button>
             </div>
           </form>
           <div className="mt-4 flex items-center justify-between">
             <span className="border-b w-1/5 md:w-1/4"></span>
-            <a href="#" className="text-xs text-gray-500 uppercase">
+            <a href="/login" className="text-xs text-gray-500 uppercase">
               or login
             </a>
             <span className="border-b w-1/5 md:w-1/4"></span>

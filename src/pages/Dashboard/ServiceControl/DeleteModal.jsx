@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
-import axios from "axios";
+
 import { useGlobalToast } from "../../../GlobalContext/GlobalToast";
+import axiosInstance from "../../../axios";
 
 const DeleteModal = ({ onClose, id, problemType, setProblemReports }) => {
   const { showToast } = useGlobalToast();
@@ -8,8 +9,8 @@ const DeleteModal = ({ onClose, id, problemType, setProblemReports }) => {
     e.preventDefault();
     e.preventDefault();
     try {
-      const response = await axios.delete(
-        `https://city-corporation-backend.onrender.com/services/${problemType}/delete/${id}/`
+      const response = await axiosInstance.delete(
+        `https://city-corporation-backend.vercel.app/services/${problemType}/delete/${id}/`
       );
       console.log(response);
       if (response.status == 204) {
