@@ -40,23 +40,30 @@ const ServiceRequest = () => {
           <Skeleton></Skeleton>
         </div>
       )}
-      <div className="services-container flex gap-5 flex-wrap">
+      <div className="services-container grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-10 flex-wrap w-full">
         {serviceRequests.map((service) => (
-          <div key={service.id} className="card bg-base-100 w-96 shadow-xl">
+          <div
+            key={service.id}
+            className="max-w-sm rounded overflow-hidden shadow-lg"
+          >
             <figure>
-              <img src={service.image} alt="s" />
+              <img src={service.image} className="w-full h-56" />
             </figure>
             <div className="card-body">
               <h2 className="card-title">{service.name}</h2>
               <p>{service.description}</p>
               <div className="card-actions justify-end">
-                {globalState.isCitizen && (
+                {globalState.isAuthenticated ? (
                   <button
                     onClick={() => handleReportClick(service)}
                     className="btn text-white bg-red-600"
                   >
                     Report
                   </button>
+                ) : (
+                  <a href="/login" className="btn text-white bg-red-600">
+                    Login
+                  </a>
                 )}
               </div>
             </div>

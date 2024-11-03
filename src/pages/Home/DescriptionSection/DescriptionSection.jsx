@@ -2,7 +2,7 @@ import cityImg from "../../../assets/ccc.jpg";
 const DescriptionSection = () => {
   return (
     <div className="relative">
-      <div className="absolute inset-0 bg-gradient-to-r from-purple-950 via-pink-500 to-red-700 blur-lg opacity-20"></div>
+      <div className="absolute inset-0 bg-gray-100 blur-lg"></div>
 
       <section className="relative pt-16 ">
         <div className="container mx-auto">
@@ -44,8 +44,8 @@ const DescriptionSection = () => {
 
             <div className="w-full md:w-6/12 px-4">
               <div className="flex flex-wrap">
-                <div className="w-full md:w-6/12 px-4">
-                  <div className="relative flex flex-col mt-4">
+                <div className="w-full md:w-6/12 px-4 grid gap-2">
+                  <div className="relative flex flex-col mt-4 rounded bg-teal-300">
                     <div className="px-4 py-5 flex-auto">
                       <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-white">
                         <i className="fas fa-tools"></i>
@@ -60,7 +60,7 @@ const DescriptionSection = () => {
                       </p>
                     </div>
                   </div>
-                  <div className="relative flex flex-col min-w-0">
+                  <div className="relative flex flex-col bg-indigo-300 rounded min-w-0">
                     <div className="px-4 py-5 flex-auto">
                       <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-white">
                         <i className="fas fa-file-alt"></i>
@@ -75,9 +75,9 @@ const DescriptionSection = () => {
                     </div>
                   </div>
                 </div>
-                <div className="w-full md:w-6/12 px-4">
-                  <div className="relative flex flex-col min-w-0 mt-4">
-                    <div className="px-4 py-5 flex-auto">
+                <div className="w-full md:w-6/12 px-4 grid gap-2">
+                  <div className="relative flex flex-col  rounded bg-yellow-300 min-w-0 mt-4">
+                    <div className="px-4 py-5 flex-auto ">
                       <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-white">
                         <i className="fas fa-city"></i>
                       </div>
@@ -91,7 +91,7 @@ const DescriptionSection = () => {
                       </p>
                     </div>
                   </div>
-                  <div className="relative flex flex-col min-w-0">
+                  <div className="relative flex flex-col min-w-0 rounded bg-sky-300">
                     <div className="px-4 py-5 flex-auto">
                       <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-white">
                         <i className="fas fa-info-circle"></i>

@@ -11,7 +11,6 @@ const AddServiceRequest = () => {
   const { showToast } = useGlobalToast();
   const navigate = useNavigate();
 
-  // Add your ImageBB API key here
   const imageBBApiKey = "6d7c721c067a459ff64cabd28e220d44";
 
   const uploadImageToImageBB = async (imageFile) => {

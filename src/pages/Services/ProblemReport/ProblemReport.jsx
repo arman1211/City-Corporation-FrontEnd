@@ -40,23 +40,30 @@ const ProblemReport = () => {
           <Skeleton></Skeleton>
         </div>
       )}
-      <div className="problems-container flex gap-5 flex-wrap">
+      <div className="problems-container grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-10 flex-wrap w-full">
         {problemReports.map((problem) => (
-          <div key={problem.id} className="card bg-base-100 w-96 shadow-xl">
+          <div
+            key={problem.id}
+            className="max-w-sm rounded overflow-hidden shadow-lg"
+          >
             <figure>
-              <img src={problem.image} alt="Shoes" />
+              <img src={problem.image} alt="Shoes" className="w-full h-56" />
             </figure>
             <div className="card-body">
               <h2 className="card-title">{problem.name}</h2>
               <p>{problem.description}</p>
               <div className="card-actions justify-end">
-                {globalState.isCitizen && (
+                {globalState.isAuthenticated ? (
                   <button
                     onClick={() => handleReportClick(problem)}
                     className="btn text-white bg-red-600"
                   >
                     Report
                   </button>
+                ) : (
+                  <a className="btn text-white bg-red-600" href="/login">
+                    Login
+                  </a>
                 )}
               </div>
             </div>
