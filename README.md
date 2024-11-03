@@ -35,75 +35,14 @@ To run this project locally, follow these steps:
 1. **Clone the repository**:
    ```bash
    git clone https://github.com/your-repo/city-corporation-frontend.git
+   cd city-corporation-frontend
 
+2. **Install dependencies:**:
+   ```bash
+   npm install
 
-## API Endpoints
+3.  **Start the development server:**:
+   ```bash
+   npm run dev
 
-The frontend interacts with the following API endpoints:
-
-- **Problem Reporting**: `POST /services/report-problem/`
-  - Description: Allows a citizen to report a problem (e.g., garbage collection, street repair, light repair).
-  - Request Body:
-    ```json
-    {
-      "problem_type": "Garbage Collection",
-      "description": "Garbage is not collected for a week.",
-      "location": "Street 15, Block B",
-      "citizen_id": 1
-    }
-    ```
-  - Response:
-    ```json
-    {
-      "id": 101,
-      "problem_type": "Garbage Collection",
-      "description": "Garbage is not collected for a week.",
-      "location": "Street 15, Block B",
-      "status": "in_progress",
-      "citizen_id": 1,
-      "created_at": "2024-09-22T08:30:00Z"
-    }
-    ```
-
-- **Problem Types**: `GET /services/problem-types/`
-  - Description: Fetches available problem types (e.g., garbage collection, street repair, light repair).
-  - Response:
-    ```json
-    [
-      {
-        "id": 1,
-        "name": "Garbage Collection"
-      },
-      {
-        "id": 2,
-        "name": "Street Repair"
-      },
-      {
-        "id": 3,
-        "name": "Light Repair"
-      }
-    ]
-    ```
-
-- **Service Requests**: `POST /services/request-service/`
-  - Description: Allows a citizen to request individual services such as a trade license or birth certificate.
-  - Request Body:
-    ```json
-    {
-      "service_type": "Trade License",
-      "citizen_id": 1,
-      "details": "Applying for a new trade license for business."
-    }
-    ```
-  - Response:
-    ```json
-    {
-      "id": 202,
-      "service_type": "Trade License",
-      "details": "Applying for a new trade license for business.",
-      "status": "pending",
-      "citizen_id": 1,
-      "created_at": "2024-09-22T08:45:00Z"
-    }
-    ```
-
+  
