@@ -1,98 +1,61 @@
-import { useState } from "react";
+import { Disclosure } from "@headlessui/react";
+import { FiChevronDown } from "react-icons/fi"; // This provides the toggle icon
 
 const FAQ = () => {
-  const [expandedIndex, setExpandedIndex] = useState(null);
-
-  const toggleFAQ = (index) => {
-    setExpandedIndex(expandedIndex === index ? null : index);
-  };
+  const faqs = [
+    {
+      question: "How can I report a problem in my area?",
+      answer:
+        "To report a problem, go to the 'Add Problem Report' section, fill in the necessary details, and submit your report. The relevant City Corporation authority will address your issue as soon as possible.",
+    },
+    {
+      question: "How do I request a service?",
+      answer:
+        "You can request services such as a trade license or birth certificate through the 'Add Service Request' section. Provide the necessary information and submit your request.",
+    },
+    {
+      question: "What are the service request fees?",
+      answer:
+        "Service request fees vary depending on the type of service. Details of fees are provided during the service request process.",
+    },
+    {
+      question: "How can I check the status of my report or service request?",
+      answer:
+        "You can track the status of your reports or service requests through the 'Service Control' section on your dashboard.",
+    },
+    {
+      question: "What should I do if I encounter issues with my request?",
+      answer:
+        "If you face any issues, please contact City Corporation support through the provided contact details on the portal.",
+    },
+  ];
 
   return (
-    <div>
-      <section className="bg-white">
-        <div className="container px-6 py-12 mx-auto">
-          <h1 className="text-2xl font-semibold text-gray-800 lg:text-3xl">
-            Frequently Asked Questions
-          </h1>
-
-          <div className="mt-8 space-y-8 lg:mt-12">
-            {[
-              {
-                question: "How can I report a problem in my area?",
-                answer:
-                  "To report a problem, go to the 'Add Problem Report' section, fill in the necessary details, and submit your report. The relevant City Corporation authority will address your issue as soon as possible.",
-              },
-              {
-                question: "How do I request a service?",
-                answer:
-                  "You can request services such as a trade license or birth certificate through the 'Add Service Request' section. Provide the necessary information and submit your request.",
-              },
-              {
-                question: "What are the service request fees?",
-                answer:
-                  "Service request fees vary depending on the type of service. Details of fees are provided during the service request process.",
-              },
-              {
-                question:
-                  "How can I check the status of my report or service request?",
-                answer:
-                  "You can track the status of your reports or service requests through the 'Service Control' section on your dashboard.",
-              },
-              {
-                question:
-                  "What should I do if I encounter issues with my request?",
-                answer:
-                  "If you face any issues, please contact City Corporation support through the provided contact details on the portal.",
-              },
-            ].map((item, index) => (
-              <div
-                key={index}
-                className={`p-6 bg-gray-100 rounded-lg transition-all duration-1000 ${
-                  expandedIndex === index ? "bg-gray-200" : ""
-                }`}
-              >
-                <button
-                  onClick={() => toggleFAQ(index)}
-                  className="flex items-center justify-between w-full outline-none  focus:outline-none border-none"
-                >
-                  <h1 className="font-semibold text-gray-700">
-                    {item.question}
-                  </h1>
-
-                  <span
-                    className={`transform transition-transform duration-300 ${
-                      expandedIndex === index ? "rotate-45" : "rotate-0"
-                    } text-white bg-blue-500 rounded-full`}
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="w-6 h-6"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M12 6v6m0 0v6m0-6h6m-6 0H6"
-                      />
-                    </svg>
-                  </span>
-                </button>
-
-                <p
-                  className={`mt-4 text-sm text-gray-500 overflow-hidden transition-all duration-300 ${
-                    expandedIndex === index ? "max-h-full" : "max-h-0"
-                  }`}
-                >
-                  {item.answer}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+    <div className="w-full max-w-2xl p-4 m-auto mb-12 bg-white rounded-lg shadow-lg">
+      <h2 className="text-5xl font-semibold text-center text-purple-800 mb-16">
+        Frequently Asked Questions
+      </h2>
+      <div className="space-y-4">
+        {faqs.map((faq, index) => (
+          <Disclosure key={index}>
+            {({ open }) => (
+              <>
+                <Disclosure.Button className="flex justify-between w-full px-4 py-2 text-lg font-medium text-left text-gray-800 bg-gray-100 rounded-lg hover:bg-gray-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
+                  <span>{faq.question}</span>
+                  <FiChevronDown
+                    className={`${
+                      open ? "transform rotate-180" : ""
+                    } w-5 h-5 text-purple-500 transition-transform duration-200`}
+                  />
+                </Disclosure.Button>
+                <Disclosure.Panel className="px-4 pt-4 pb-2 text-gray-500">
+                  {faq.answer}
+                </Disclosure.Panel>
+              </>
+            )}
+          </Disclosure>
+        ))}
+      </div>
     </div>
   );
 };

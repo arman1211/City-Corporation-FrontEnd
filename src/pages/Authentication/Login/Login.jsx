@@ -69,10 +69,13 @@ const Login = () => {
         className="bg-purple-100 w-1/2 text-center mx-auto my-5 border-t border-b border-purple-500 text-purple-700 px-4 py-3"
         role="alert"
       >
-        <p className="font-bold">Please Wait</p>
-        <p className="text-sm">
-          Server may take time to start. please wait for a minute
-        </p>
+        <p className="font-bold">Credential for test</p>
+        <p className="text-sm">citizen username: citizen</p>
+        <p className="text-sm">citizen password: asas1212</p>
+        <hr className="border-t-1 border-red-700 w-1/2 m-auto" />
+
+        <p className="text-sm">authority username: authority</p>
+        <p className="text-sm">authority password: asas1212</p>
       </div>
       <div className="flex bg-white rounded-lg shadow-lg overflow-hidden mx-auto max-w-sm lg:max-w-4xl">
         <img className="hidden lg:block lg:w-1/2 bg-cover" src={LoginImg}></img>
